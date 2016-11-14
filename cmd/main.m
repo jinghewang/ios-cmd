@@ -41,6 +41,24 @@ void testChar(char *words[]){
 
 }
 
+void testCharFromFile(char *filename){
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        //return(0);
+    }
+    
+    char word[100];
+    while (fgets(word, 100, file)) {
+        //统计的时候，要去掉后面的换行符 \n
+         word[strlen(word)-1] = '\0';
+         //去掉后面的换行符 \r
+         word[strlen(word)-1] = '\0';
+         NSLog(@"%s is %lu characters long", word, strlen(word));
+    }
+    
+    fclose(file);
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -65,6 +83,8 @@ int main(int argc, const char * argv[]) {
     char *words[4] = {"about","above","apple","A \"Macbook pro\""};
     testChar(words);
     
+    char *filename= "/Users/hbd/Documents/ios2/ios-cmd/test.txt";
+    testCharFromFile(filename);
     
     return 0;
 }

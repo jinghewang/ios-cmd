@@ -34,6 +34,13 @@ void testFor(int num){
     }
 }
 
+void testChar(char *words[]){
+    for (int j=0; j<4; j++) {
+        NSLog(@"%s len is %lu",words[j],strlen(words[j]));
+    }
+
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -54,6 +61,10 @@ int main(int argc, const char * argv[]) {
     NSLog(@"Are %d and %d different? %@",v_thing1,v_thing3,boolString(areTheyDifferent));
     
     testFor(6);
+    
+    char *words[4] = {"about","above","apple","A \"Macbook pro\""};
+    testChar(words);
+    
     
     return 0;
 }

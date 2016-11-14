@@ -83,7 +83,7 @@ int main(int argc, const char * argv[]) {
     char *words[4] = {"about","above","apple","A \"Macbook pro\""};
     testChar(words);
     
-    char *filename= "/Users/hbd/Documents/ios2/ios-cmd/test.txt";
+    char *filename= "/Users/hbd/Documents/ios2/ios-cmd/files/test.txt";
     testCharFromFile(filename);
     
     return 0;

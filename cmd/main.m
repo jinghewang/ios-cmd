@@ -28,6 +28,12 @@ BOOL areIntsDifferent(int thing1,int thing2){
     }
 }
 
+void testFor(int num){
+    for(int i=0;i<num;i++){
+        NSLog(@"current:%d",i);
+    }
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -47,6 +53,7 @@ int main(int argc, const char * argv[]) {
     areTheyDifferent = areIntsDifferent(v_thing1,v_thing3);
     NSLog(@"Are %d and %d different? %@",v_thing1,v_thing3,boolString(areTheyDifferent));
     
+    testFor(6);
     
     return 0;
 }

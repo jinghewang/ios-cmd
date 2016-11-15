@@ -9,6 +9,33 @@
 #import <Foundation/Foundation.h>
 
 
+//枚举形状
+typedef enum{
+    kCircle,
+    kRectangle,
+    kEgg
+} ShapeType;
+
+//枚举颜色
+typedef enum{
+    kRed,
+    kBlue,
+    kGreen
+} ShapeColor;
+
+//定义图形属性
+typedef struct{
+    int x,y,width,height;
+} ShapeRect;
+
+//定义整体描述的形状
+typedef struct{
+    ShapeColor color;
+    ShapeType type;
+    ShapeRect bounds;
+} Shape;
+
+
 NSString *boolString(BOOL b){
     if(b == YES){
         return @"YES";
@@ -59,6 +86,10 @@ void testCharFromFile(char *filename){
     fclose(file);
 }
 
+
+
+
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -86,7 +117,29 @@ int main(int argc, const char * argv[]) {
     char *filename= "/Users/hbd/Documents/ios2/ios-cmd/files/test.txt";
     testCharFromFile(filename);
     
+    //-------------------
+    Shape shape[3];
+    
+    ShapeRect rect = {1,2,4,5};
+    shape[0].bounds = rect;
+    
+    NSString *myString = @"This is a String!";
+    NSString *anotherString = [NSString stringWithFormat:@"%@ is length: %lu",myString,(unsigned long)[myString length]];
+    NSLog(@"%@",anotherString);
+    
+    NSString *path = @"astring.text";
+    BOOL result = [anotherString writeToFile:path atomically:YES];
+    NSLog(@"result is:%d",result);
+    
+    NSString *astring01 = @"This is a String!";
+    NSString *astring02 = @"This is a String!";
+    result = [astring01 isEqualToString:astring02];
+    NSLog(@"result is:%d",result);
+
+    
     return 0;
 }
+
+
 
 
